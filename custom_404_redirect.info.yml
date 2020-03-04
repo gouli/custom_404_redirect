@@ -1,0 +1,5 @@
+name: 'custom_404_redirect'
+type: module
+description: 'This module is to catch 404 and redirect to custom page'
+core: 8.x
+package: 'Custom'

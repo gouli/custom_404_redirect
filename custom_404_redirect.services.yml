@@ -1,0 +1,9 @@
+services:
+  logger.channel.custom_404_redirect:
+    parent: logger.channel_base
+    arguments: ['custom_404_redirect']
+  custom_404_redirect_subscriber:
+    class: Drupal\custom_404_redirect\EventSubscriber\Custom404RedirectSubscriber
+    tags:
+      - { name: event_subscriber }
+    arguments: ['@config.factory', '@http_kernel', '@logger.channel.php', '@redirect.destination', '@router.no_access_checks', '@access_manager']
