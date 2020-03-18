@@ -7,6 +7,7 @@ use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\EventSubscriber\DefaultExceptionHtmlSubscriber;
 use Drupal\Core\Routing\RedirectDestinationInterface;
 use Psr\Log\LoggerInterface;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Event\GetResponseForExceptionEvent;
 use Symfony\Component\HttpKernel\HttpKernelInterface;
 use Symfony\Component\Routing\Matcher\UrlMatcherInterface;
@@ -69,7 +70,7 @@ class Custom404RedirectSubscriber extends DefaultExceptionHtmlSubscriber {
     $requestUri = $request->server->get('REQUEST_URI');
     if ( in_array($requestUri, $exclude_array) ) {
       $custom_path = '/node/1';
-      $this->makeSubrequest($event, $custom_path, '200');
+      $this->makeSubrequest($event, $custom_path, Response::HTTP_FOUND);
     }
   }
 
