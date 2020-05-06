@@ -1,5 +1,5 @@
 name: 'custom_404_redirect'
 type: module
-description: 'This module is to catch 404 and redirect to custom page'
+description: 'This module is to catch 404 and redirect to custom pages.'
 core: 8.x
 package: 'Custom'
