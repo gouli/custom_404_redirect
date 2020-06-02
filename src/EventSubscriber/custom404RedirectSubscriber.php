@@ -65,11 +65,14 @@ class Custom404RedirectSubscriber extends DefaultExceptionHtmlSubscriber {
    * {@inheritdoc}
    */
   public function on404(GetResponseForExceptionEvent $event) {
-    $exclude_array = ['/test', '/testpage'];
     $request = \Drupal::request();
     $requestUri = $request->server->get('REQUEST_URI');
+    $requestUri = ltrim($requestUri, '/');
+    // get this modules configuration Settings
+    $config = \Drupal::config('custom_404_redirect.custom404adminsettings');
+    $exclude_array = $config->get();
     if ( in_array($requestUri, $exclude_array) ) {
-      $custom_path = '/node/1';
+      $custom_path = array_keys($exclude_array, $requestUri)[0];
       $this->makeSubrequest($event, $custom_path, Response::HTTP_FOUND);
     }
   }

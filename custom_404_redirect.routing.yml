@@ -1,0 +1,9 @@
+custom_404_redirect.custom_404_admin_settings_form:
+  path: '/admin/config/custom_404_redirect/custom404adminsettings'
+  defaults:
+    _form: '\Drupal\custom_404_redirect\Form\Custom404AdminSettingsForm'
+    _title: 'Custom404AdminSettingsForm'
+  requirements:
+    _permission: 'access administration pages'
+  options:
+    _admin_route: TRUE

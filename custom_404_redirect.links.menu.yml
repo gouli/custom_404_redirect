@@ -1,0 +1,6 @@
+custom_404_redirect.custom_404_admin_settings_form:
+  title: 'Custom404AdminSettingsForm'
+  route_name: custom_404_redirect.custom_404_admin_settings_form
+  description: 'Configure 404 redirects'
+  parent: system.admin_config_system
+  weight: 99
